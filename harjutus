@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Init muutujad
+            string theMatrix, system, neo, enemy = "", inside = "", save = "", unplugged = "", fight = "";
+            string[] profession = new string[4], adj = new string[2];
+
+            // Alginfo saamine kasutajalt
+            Console.WriteLine("Tere kasutaja!");
+            Console.WriteLine("Mängime ühe madlibsi mängu!");
+            Console.WriteLine("Ütle oma nimi");
+            neo = Console.ReadLine();
+
+            // Matrix muutuja saamine kasutajalt
+            Console.WriteLine($"Tere {neo}! Oled sa valmis? Mille kohta sa infot otsid?");
+            theMatrix = Console.ReadLine();
+
+            // System muutuja saamine kasutajalt
+            Console.WriteLine($"Ohoo! Sa tahad rohkem teada saada {theMatrix} kohta?");
+            Console.WriteLine($"Okei esimesena, räägi mulle mis sa tead {theMatrix} kohta");
+            Console.WriteLine($"Mis iseloomustab kõige paremini sõna {theMatrix} :");
+            system = Console.ReadLine();
+
+            // Enemy muutuja saamine kasutajalt
+            Console.WriteLine($"Anna mulle vastandsõna sõnale: {system}");
+            enemy = Console.ReadLine();
+
+            // Inside muutuja saamine kasutajalt
+            Console.WriteLine($"Nüüd anna mulle rahulik tegusõna olevikus");
+            inside = Console.ReadLine();
+
+            // Töökohad muutuja saamine kasutajalt
+            Console.WriteLine($"Nüüd kirjuta 4 töökohta (mitmuses) seoses {system}");
+
+            for (int i = 0; i < profession.Length; i++)
+            {
+                Console.WriteLine($"Töökoht {i + 1} / {profession.Length}");
+                profession[i] = Console.ReadLine();
+            }
+
+            // Salvestus muutuja saamine
+            Console.WriteLine($"Kangelaslikusega seotud sõna:");
+            save = Console.ReadLine();
+
+            // Unplugged muutuja saamine
+            Console.WriteLine($"Sõna, mis väljendab vabadus tunnet (minevikus):");
+            unplugged = Console.ReadLine();
+
+            // Omadussõnade saamine
+            Console.WriteLine($"Kaks kirjeldavat omadussõna:");
+
+            for (int i = 0; i < adj.Length; i++)
+            {
+                Console.WriteLine($"Omadussõna {i + 1} / {adj.Length}:");
+                adj[i] = Console.ReadLine();
+            }
+
+            // Kaklus muutuja saamine
+            Console.WriteLine($"ja tegusõna:");
+            fight = Console.ReadLine();
+
+            // Init Story
+            string madlibsStory =
+            $"{theMatrix} on {system}, {neo}. Mis {system} meie {enemy}. " +
+            $"Aga kui sa oled {inside}, sa vaatad ringi, mida sa näed? " +
+            $"{profession[0]}, {profession[1]}, {profession[2]}, {profession[3]}. Inimeste mõtted " +
+            $"keda me üritame {save}. Kuniks me seda teeme, " +
+            $"need inimesed on endiselt osa sellest {system} ja see " +
+            $"teeb nad meie {enemy}. Sa pead aru saama, et enamus need inimesed " +
+            $"pole valmis {unplugged}. Ja paljud neist on nii {adj[0]}, " +
+            $"nii lootusetult {adj[1]}  {system}, et nad {fight} kaitsmiseks.";
+
+            // Print Story
+            Console.WriteLine(madlibsStory);
+            Console.ReadKey();
+        }
+    }
+}
